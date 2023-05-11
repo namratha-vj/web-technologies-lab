@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookstore - Catalogue</title>
+</head>
+
+<body>
+  <!-- Top frame: logo and navigation bar -->
+  <header>
+    <img src="logo.png" alt="Online Bookstore Logo">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Catalogue</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main frame: catalogue -->
+  <main>
+    <h1>Catalogue</h1>
+    <!-- Filters -->
+    <section id="filters">
+      <h2>Filter by:</h2>
+      <form>
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+          <option value="">All Genres</option>
+          <option value="fiction">Fiction</option>
+          <option value="non-fiction">Non-Fiction</option>
+          <option value="mystery">Mystery</option>
+          <option value="romance">Romance</option>
+        </select>
+        <label for="author">Author:</label>
+        <select id="author" name="author">
+          <option value="">All Authors</option>
+          <option value="jane-austen">Jane Austen</option>
+          <option value="stephen-king">Stephen King</option>
+          <option value="j-k-rowling">J.K. Rowling</option>
+          <option value="ernest-hemingway">Ernest Hemingway</option>
+        </select>
+        <label for="price-range">Price Range:</label>
+        <select id="price-range" name="price-range">
+          <option value="">All Prices</option>
+          <option value="0-9.99">$0.00 - $9.99</option>
+          <option value="10-19.99">$10.00 - $19.99</option>
+          <option value="20-29.99">$20.00 - $29.99</option>
+          <option value="30+">$30.00 and above</option>
+        </select>
+        <input type="submit" value="Filter">
+      </form>
+    </section>
+    <!-- Book cards -->
+    <section id="book-cards">
+      <div class="book-card">
+        <img src="book1.jpg" alt="Book Cover">
+        <h2>Book Title 1</h2>
+        <p>Author Name</p>
+        <p>$19.99</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mi eu mauris vestibulum lacinia non sit amet mi.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="book-card">
+        <img src="book2.jpg" alt="Book Cover">
+        <h2>Book Title 2</h2>
+        <p>Author Name</p>
+        <p>$14.99</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac mi eu mauris vestibulum lacinia non sit amet mi.</p>
+        <a href="#">View Details</a>
+      </div>
+    </section>
+  </main>
