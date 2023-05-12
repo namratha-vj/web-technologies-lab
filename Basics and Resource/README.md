@@ -4,6 +4,7 @@
 - [HTML](https://www.w3schools.com/html/default.asp)
 - [CSS](https://www.w3schools.com/css/default.asp)
 - [JavaScript](https://www.w3schools.com/js/default.asp)
+- [Resource Blog](https://shravan-revanna.notion.site/Web-dev-Resource-Shravan-a0f86d6db7c14c43bff8658472f1b0bd)
 
 ## HTML Tags
 
