@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form Validation</title>
+</head>
+
+<body>
+  <h1 align="center">Registration Form</h1>
+  <form name="registrationForm" onsubmit="return validateForm()" align="center">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="mobileNumber">Mobile Number:</label>
+    <input type="text" id="mobileNumber" name="mobileNumber"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      var firstName = document.forms["registrationForm"]["firstName"].value;
+      var password = document.forms["registrationForm"]["password"].value;
+      var email = document.forms["registrationForm"]["email"].value;
+      var mobileNumber = document.forms["registrationForm"]["mobileNumber"].value;
+
+      // First Name validation
+      if (firstName == "" || !/^[a-zA-Z]+$/.test(firstName) || firstName.length < 6) {
+        alert("First Name must contain alphabets only and should not be less than 6 characters.");
+        return false;
+      }
+
+      // Password validation
+      if (password == "" || password.length < 6) {
+        alert("Password should not be less than 6 characters long.");
+        return false;
+      }
+
+      // Email validation
+      if (email == "" || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Mobile Number validation
+      if (mobileNumber == "" || !/^[0-9]{10}$/.test(mobileNumber)) {
+        alert("Mobile number should contain 10 digits.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+
+</html>
