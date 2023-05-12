@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 4</title>
+  <script>
+    var date = new Date();
+
+    function displayDate() {
+      var date = new Date();
+      document.getElementById("dateInput").value = date;
+      document.getElementById("date").innerHTML = date;
+    }
+
+    function factorial() {
+      var num = prompt("Enter a number:");
+      var fact = 1;
+      for (var i = 1; i <= num; i++) {
+        fact *= i;
+      }
+      alert("The factorial of " + num + " is " + fact);
+    }
+
+    function multiplicationTable() {
+      var num = prompt("Enter a number:");
+      var table = "";
+      for (var i = 1; i <= 10; i++) {
+        table += num + " x " + i + " = " + (num * i) + "\n";
+      }
+      alert("Multiplication Table of " + num + "\n\n" + table);
+    }
+
+    function sumNumbers() {
+      var num = parseInt(prompt("Enter a number:"));
+      var sum = num;
+      while (confirm("Do you want to add another number?")) {
+        num = parseInt(prompt("Enter another number:"));
+        sum += num;
+      }
+      alert("The sum of all numbers is " + sum);
+    }
+  </script>
+</head>
+
+<body align="center">
+  <h1>Display Date</h1>
+  <input type="text" id="dateInput" aria-label="input">
+  <button type="button" onclick="displayDate()">Display Date</button>
+  <button type="button" onclick="alert(date)">Alert</button>
+  <p id="date"></p>
+  <br>
+  <h1>Factorial of a Number</h1>
+  <button type="button" onclick="factorial()">Find Factorial</button>
+  <br>
+  <h1>Multiplication Table</h1>
+  <button type="button" onclick="multiplicationTable()">Display Table</button>
+  <br>
+  <h1>Sum of Numbers</h1>
+  <button type="button" onclick="sumNumbers()">Calculate Sum</button>
+</body>
+
+</html>
