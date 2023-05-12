@@ -8,4 +8,4 @@
 
 ## Resource
 
-[Basics and Resource](Bsics%20and%20Resource/README.md)
+[Basics and Resource](Basics%20and%20Resource/README.md)
