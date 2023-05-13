@@ -1,8 +1,8 @@
 #chat-container {
+  margin: auto;
   width: 80vh;
   border: 1px solid #ccc;
   border-radius: 5px;
-  display: inline;
 }
 
 #chat-header {

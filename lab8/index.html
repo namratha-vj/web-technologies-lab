@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator using JavaScript</title>
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var operator = document.getElementById("operator").value;
+      var result = 0;
+      switch (operator) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num1 / num2;
+          break;
+        default:
+          alert("Invalid operator");
+          break;
+      }
+      document.getElementById("result").value = result;
+    }
+  </script>
+</head>
+
+<body align="center">
+  <h1>Simple Calculator using JavaScript</h1>
+  <label for="num1">Number 1:</label>
+  <input type="text" id="num1"><br>
+  <label for="num2">Number 2:</label>
+  <input type="text" id="num2"><br><br>
+  <label for="operator">Operator:</label>
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <button onclick="calculate()">Calculate</button><br><br>
+  <label for="result">Result:</label>
+  <input type="text" id="result" readonly>
+</body>
+
+</html>
