@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookstore - Login</title>
+</head>
+
+<body align="center">
+  <h1>Login</h1>
+  <form id="form" onsubmit="return printdata()">
+    <label for="email">Email: </label>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+  <p><a href="#">Forgot your password?</a></p>
+  <p>Don't have an account? <a href="/lab1/register.html">Create one here.</a></p>
+  <p id="log"></p>
+  <div id="logdata"></div>
+</body>
+<script>
+  const form = document.getElementById("form");
+  const log = document.getElementById("log");
+  const logbody = document.getElementById("logdata");
+
+  form.addEventListener("submit", logSubmit);
+
+  function logSubmit(event) {
+    log.textContent = `Form Submitted! Timestamp: ${event.timeStamp}`;
+    event.preventDefault();
+  }
+
+  function printdata() {
+    var usermail = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    const newp = document.createElement("p")
+    newp.textContent = 'Email: ' + usermail + ' Password: ' + password;
+    logbody.appendChild(newp);
+  }
+</script>
+
+</html>
