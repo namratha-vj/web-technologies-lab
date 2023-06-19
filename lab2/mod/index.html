@@ -3,24 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Country Capitals</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.css'>
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 
-<body align="center">
-  <h1 class="cont">Select a Country</h1>
+<body>
+  <!-- partial:index.partial.html -->
+  <input class="dark-light" type="checkbox" id="dark-light" name="dark-light" />
+  <label for="dark-light"></label>
 
-  <select id="country" onchange="displayCapital()" title="Select a country" class="country">
-    <option value="">--Select a country--</option>
-    <option value="USA">United States</option>
-    <option value="Canada">Canada</option>
-    <option value="Mexico">Mexico</option>
-    <option value="France">France</option>
-    <option value="Germany">Germany</option>
-  </select>
-  <p id="sent" class="sent">The capital of <span id="selectedCountry"></span> is <span id="capital"></span></p>
+  <div class="light-back"></div>
 
+  <h1>Select a Country</h1>
+  <div class="sec-center">
+    <input class="dropdown" type="checkbox" id="dropdown" name="dropdown" />
+    <label class="for-dropdown" for="dropdown">Select Country<i class="uil uil-arrow-down"></i></label>
+    <div class="section-dropdown">
+      <a href="#">United States <i class="uil uil-arrow-right"></i></a>
+      <a href="#">Canada <i class="uil uil-arrow-right"></i></a>
+      <a href="#">Mexico <i class="uil uil-arrow-right"></i></a>
+      <a href="#">France <i class="uil uil-arrow-right"></i></a>
+      <a href="#">Germany <i class="uil uil-arrow-right"></i></a>
+    </div>
+  </div>
   <script>
     function displayCapital() {
       var selectedCountry = document.getElementById("country").value;
@@ -56,6 +63,8 @@
       document.getElementById("capital").innerHTML = capital;
     }
   </script>
+  <script src="./script.js"></script>
+
 </body>
 
 </html>

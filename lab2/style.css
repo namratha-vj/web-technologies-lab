@@ -1,0 +1,32 @@
+body {
+  background: #d1d8ec;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+#capital {
+  font-weight: bold;
+  color: red;
+  font-size: large;
+}
+
+.country {
+  font-weight: bold;
+  color: blue;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+  box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+}
+
+.sent {
+  display: none;
+}
+
+.cont {
+  text-shadow: 2px 2px 5px #10267070;
+}
