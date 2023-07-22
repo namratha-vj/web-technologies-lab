@@ -4,67 +4,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Javascript Validation</title>
+  <title>Javascript Form Validation</title>
 </head>
-<script language="javascript">
-  function button_click() {
-    var fname = f.fname.value;
-    var spchar = "!@#$%^&*()+=-[]\\';,./{}|\":<>?~";
-    var number = "0123456789";
-
-    if (fname.length < 6) {
-      alert("username should be at least 6 characters");
-      return false;
-    }
-
-    if (fname !== "") {
-      for (var i = 0; i < fname.length; i++) {
-        if (spchar.indexOf(fname.charAt(i)) !== -1) {
-          alert("username should not have special characters");
-          f.fname.value = "";
-          return false;
-        }
-      }
-    }
-
-    if (fname !== "") {
-      for (var i = 0; i < fname.length; i++) {
-        if (number.indexOf(fname.charAt(i)) !== -1) {
-          alert("username should not have numbers");
-          f.fname.value = "";
-          return false;
-        }
-      }
-    }
-
-    if (fname.length >= 6) {
-      alert("Valid username");
-    }
-  }
-</script>
-
 
 <body align="center">
+  <h2 align="center">Username and Password Validation</h2>
   <form name="f">
-    <table>
-      <tr>
-        <td colspan="2">
-          <h2>USER NAME VALIDATION</h2>
-        </td>
-      </tr>
-      <tr>
-        <td>USERNAME:</td>
-        <td><input type="text" name="fname" maxlength="20" size="30"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><input type="button" value="SUBMIT" onClick="button_click()"></td>
-      </tr>
-    </table>
+    <label for="fname">USERNAME:</label>
+    <input type="text" id="fname" name="fname" maxlength="20" size="30">
+    <input type="button" value="SUBMIT" onClick="validateUsername()">
+
+    <br><br>
+    <label for="fname">PASSWORD:</label>
+    <input type="password" id="pw" name="pw" maxlength="10" size="30">
+    <br><br>
+    <label for="fname">CONFIRM PASSWORD:</label>
+    <input type="password" id="cpw" name="cpw" maxlength="10" size="30">
+    <input type="button" value="SUBMIT" onClick="validatePassword()">
   </form>
 
+  <script>
+    function validateUsername() {
+      var fname = document.getElementById("fname").value;
+      var spchar = "!@#$%^&*()+=-[]\\';,./{}|\":<>?~";
+      var number = "0123456789";
 
+      if (fname.length < 6) {
+        alert("Username should be at least 6 characters");
+        return false;
+      }
 
+      for (var i = 0; i < fname.length; i++) {
+        if (spchar.indexOf(fname.charAt(i)) !== -1) {
+          alert("Username should not have special characters");
+          document.getElementById("fname").value = "";
+          return false;
+        }
+
+        if (number.indexOf(fname.charAt(i)) !== -1) {
+          alert("Username should not have numbers");
+          document.getElementById("fname").value = "";
+          return false;
+        }
+      }
+
+      alert("Valid username");
+    }
+
+    function validatePassword() {
+      var pw = document.getElementById("pw").value;
+      var cpw = document.getElementById("cpw").value;
+
+      if (pw.length < 6) {
+        alert("Password should be at least 6 characters");
+        return false;
+      }
+
+      if (pw !== cpw) {
+        alert("Password and Confirm Password should be same");
+        document.getElementById("pw").value = "";
+        document.getElementById("cpw").value = "";
+        return false;
+      }
+
+      alert("Valid password");
+
+    }
+  </script>
 </body>
 
 </html>

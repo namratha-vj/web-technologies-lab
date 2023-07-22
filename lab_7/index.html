@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 7</title>
+  <script>
+    function multiplicationTable() {
+      var num = prompt("Enter a number:");
+      var table = "";
+      for (var i = 1; i <= 10; i++) {
+        table += num + " x " + i + " = " + (num * i) + "\n";
+      }
+      alert("Multiplication Table of " + num + "\n\n" + table);
+    }
+
+    function sumNumbers() {
+      var num = parseInt(prompt("Enter a number:"));
+      var sum = num;
+      while (confirm("Do you want to add another number?")) {
+        num = parseInt(prompt("Enter another number:"));
+        sum += num;
+      }
+      alert("The sum of all numbers is " + sum);
+    }
+  </script>
+</head>
+
+<body align="center">
+  <h1>Multiplication Table</h1>
+  <button type="button" onclick="multiplicationTable()">Display Table</button>
+  <br>
+  <h1>Sum of Numbers</h1>
+  <button type="button" onclick="sumNumbers()">Calculate Sum</button>
+</body>
+
+</html>

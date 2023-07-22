@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6</title>
+  <script>
+    var date = new Date();
+
+    function displayDate() {
+      var date = new Date();
+      document.getElementById("dateInput").value = date;
+      document.getElementById("date").innerHTML = date;
+    }
+
+    function factorial() {
+      var num = prompt("Enter a number:");
+      var fact = 1;
+      for (var i = 1; i <= num; i++) {
+        fact *= i;
+      }
+      alert("The factorial of " + num + " is " + fact);
+    }
+  </script>
+</head>
+
+<body align="center">
+  <h1>Display Date</h1>
+  <input type="text" id="dateInput" aria-label="input">
+  <button type="button" onclick="displayDate()">Display Date</button>
+  <button type="button" onclick="alert(date)">Alert</button>
+  <p id="date"></p>
+  <br>
+  <h1>Factorial of a Number</h1>
+  <button type="button" onclick="factorial()">Find Factorial</button>
+</body>
+
+</html>
