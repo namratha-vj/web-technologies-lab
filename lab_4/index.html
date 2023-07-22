@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Validation</title>
+</head>
+<script language="javascript">
+  function button_click() {
+    var fname = f.fname.value;
+    var spchar = "!@#$%^&*()+=-[]\\';,./{}|\":<>?~";
+    var number = "0123456789";
+
+    if (fname.length < 6) {
+      alert("username should be at least 6 characters");
+      return false;
+    }
+
+    if (fname !== "") {
+      for (var i = 0; i < fname.length; i++) {
+        if (spchar.indexOf(fname.charAt(i)) !== -1) {
+          alert("username should not have special characters");
+          f.fname.value = "";
+          return false;
+        }
+      }
+    }
+
+    if (fname !== "") {
+      for (var i = 0; i < fname.length; i++) {
+        if (number.indexOf(fname.charAt(i)) !== -1) {
+          alert("username should not have numbers");
+          f.fname.value = "";
+          return false;
+        }
+      }
+    }
+
+    if (fname.length >= 6) {
+      alert("Valid username");
+    }
+  }
+</script>
+
+
+<body align="center">
+  <form name="f">
+    <table>
+      <tr>
+        <td colspan="2">
+          <h2>USER NAME VALIDATION</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>USERNAME:</td>
+        <td><input type="text" name="fname" maxlength="20" size="30"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="button" value="SUBMIT" onClick="button_click()"></td>
+      </tr>
+    </table>
+  </form>
+
+
+
+</body>
+
+</html>
