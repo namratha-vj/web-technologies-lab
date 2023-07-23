@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="students.css"?>
+<students>
+  <student>
+    <USN>1MS21CS001</USN>
+    <name>ALEX</name>
+    <college>RIT</college>
+    <branch>CSE</branch>
+    <year>2005</year>
+    <email>alex@gmail.com</email>
+  </student>
+  <student>
+    <USN>1MS21IS002</USN>
+    <name>AJAY</name>
+    <college>RIT</college>
+    <branch>ISE</branch>
+    <year>2007</year>
+    <email>ajay@gmail.com</email>
+  </student>
+  <student>
+    <USN>1MS21EC003</USN>
+    <name>CHETAN</name>
+    <college>SJBIT</college>
+    <branch>ECE</branch>
+    <year>2007</year>
+    <email>chetan@gmail.com</email>
+  </student>
+</students>

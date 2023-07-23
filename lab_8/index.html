@@ -11,9 +11,9 @@
   <h2 align="center">NUMBER TO WORDS CONVERTER</h2>
   <form>
     <label for="number">Enter a number (0 to 999):</label>
-    <input type="number" id="number" name="number" maxlength="3">
+    <input type="text" id="number" name="number" maxlength="3">
     <br><br>
-    <input type="button" value="Convert" onClick="convertNumberToWords()">
+    <input type="button" value="Convert" onclick="convertNumberToWords()">
   </form>
   <br>
   <div id="result" align="center"></div>
@@ -29,7 +29,7 @@
         return;
       }
 
-      var numberInWords = numberToWords(number);
+      var numberInWords = numberToWords(parseInt(number));
       resultDiv.innerHTML = "Number in words: " + numberInWords;
     }
 
@@ -39,15 +39,14 @@
     }
 
     function numberToWords(number) {
-      var ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      var ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
       var tens = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
       var teens = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
-
-      if (number === 0) {
-        return ones[0];
-      }
-
       var words = [];
+
+      if (number == 0) {
+        words.push(ones[0]);
+      }
 
       if (number >= 100) {
         words.push(ones[Math.floor(number / 100)] + ' Hundred');
