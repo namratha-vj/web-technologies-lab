@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analog Clock</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #outerClock {
+      border: 5px solid black;
+      border-radius: 50%;
+      max-height: 80vh;
+      max-width: 80vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #sizeOfAnalog {
+      position: absolute;
+      background-size: 100%;
+      height: 100%;
+      width: 100%;
+    }
+
+    #hour_clock,
+    #minute_clock,
+    #second_clock {
+      position: absolute;
+      background: black;
+      border-radius: 10px;
+      transform-origin: bottom;
+      opacity: 0.8;
+    }
+
+    #hour_clock {
+      height: 25%;
+      width: 2%;
+      top: 25%;
+      left: 48.85%;
+    }
+
+    #minute_clock {
+      height: 32%;
+      width: 1.6%;
+      top: 18%;
+      left: 48.9%;
+    }
+
+    #second_clock {
+      height: 36%;
+      width: 1%;
+      top: 14%;
+      left: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="outerClock">
+    <div id="sizeOfAnalog">
+      <div id="hour_clock"></div>
+      <div id="minute_clock"></div>
+      <div id="second_clock"></div>
+    </div>
+  </div>
+  <script>
+    function adjustClockSize() {
+      var outerClock = document.getElementById("outerClock");
+      var size = Math.min(window.innerHeight, window.innerWidth) * 0.8;
+      outerClock.style.width = size + "px";
+      outerClock.style.height = size + "px";
+    }
+
+    window.onresize = adjustClockSize;
+    adjustClockSize();
+
+    var hour = document.getElementById("hour_clock");
+    var minute = document.getElementById("minute_clock");
+    var seconds = document.getElementById("second_clock");
+    var addClock = setInterval(function clock() {
+      var date_now = new Date();
+      var hr = date_now.getHours();
+      var min = date_now.getMinutes();
+      var sec = date_now.getSeconds();
+      var calc_hr = hr * 30 + min / 2;
+      var calc_min = min * 6;
+      var calc_sec = sec * 6;
+      hour.style.transform = "rotate(" + calc_hr + "deg)";
+      minute.style.transform = "rotate(" + calc_min + "deg)";
+      seconds.style.transform = "rotate(" + calc_sec + "deg)";
+    }, 1000);
+  </script>
+</body>
+
+</html>
