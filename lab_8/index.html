@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number to Words Converter</title>
+</head>
+
+<body align="center">
+  <h2 align="center">NUMBER TO WORDS CONVERTER</h2>
+  <form>
+    <label for="number">Enter a number (0 to 999):</label>
+    <input type="number" id="number" name="number" maxlength="3">
+    <br><br>
+    <input type="button" value="Convert" onClick="convertNumberToWords()">
+  </form>
+  <br>
+  <div id="result" align="center"></div>
+
+  <script>
+    function convertNumberToWords() {
+      var number = document.getElementById("number").value.trim();
+      var resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      if (!isValidNumber(number)) {
+        resultDiv.innerHTML = "Invalid input! Please enter a number in the range of 0 to 999.";
+        return;
+      }
+
+      var numberInWords = numberToWords(number);
+      resultDiv.innerHTML = "Number in words: " + numberInWords;
+    }
+
+    function isValidNumber(number) {
+      var regex = /^[0-9]{1,3}$/;
+      return regex.test(number);
+    }
+
+    function numberToWords(number) {
+      var ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      var tens = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      var teens = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+
+      if (number === 0) {
+        return ones[0];
+      }
+
+      var words = [];
+
+      if (number >= 100) {
+        words.push(ones[Math.floor(number / 100)] + ' Hundred');
+        number %= 100;
+      }
+
+      if (number >= 11 && number <= 19) {
+        words.push(teens[number - 11]);
+      } else {
+        if (number >= 20) {
+          words.push(tens[Math.floor(number / 10)]);
+          number %= 10;
+        }
+
+        if (number > 0) {
+          words.push(ones[number]);
+        }
+      }
+
+      return words.join(' ');
+    }
+  </script>
+</body>
+
+</html>
