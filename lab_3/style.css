@@ -9,22 +9,16 @@ body {
 
 #capital {
   font-weight: bold;
-  color: red;
+  color: blue;
   font-size: large;
 }
 
-.country {
+#country {
   font-weight: bold;
-  color: blue;
   font-size: 16px;
   border-radius: 10px;
   padding: 10px;
-  -webkit-box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
   box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
-}
-
-.sent {
-  display: none;
 }
 
 .cont {

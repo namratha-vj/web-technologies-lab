@@ -8,15 +8,16 @@
 </head>
 
 <body align="center">
-  <h2 align="center">NUMBER TO WORDS CONVERTER</h2>
+  <h2>NUMBER TO WORDS CONVERTER</h2>
   <form>
     <label for="number">Enter a number (0 to 999):</label>
     <input type="text" id="number" name="number" maxlength="3">
     <br><br>
+    
     <input type="button" value="Convert" onclick="convertNumberToWords()">
   </form>
   <br>
-  <div id="result" align="center"></div>
+  <div id="result"></div>
 
   <script>
     function convertNumberToWords() {

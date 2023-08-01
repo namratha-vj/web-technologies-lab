@@ -11,7 +11,7 @@
 <body align="center">
   <h1 class="cont">Select a Country</h1>
 
-  <select id="country" onchange="displayCapital()" title="Select a country" class="country">
+  <select id="country" onchange="displayCapital()" title="Select a country">
     <option value="">--Select a country--</option>
     <option value="USA">United States</option>
     <option value="Canada">Canada</option>
@@ -19,18 +19,12 @@
     <option value="France">France</option>
     <option value="Germany">Germany</option>
   </select>
-  <p id="sent" class="sent">The capital of <span id="selectedCountry"></span> is <span id="capital"></span></p>
+  <p>The capital of <span id="selectedCountry"></span> is <span id="capital"></span></p>
 
   <script>
     function displayCapital() {
       var selectedCountry = document.getElementById("country").value;
-      var sent = document.getElementById("sent");
       var capital;
-      if (selectedCountry != "") {
-        sent.style.display = "block";
-      } else {
-        sent.style.display = "none";
-      }
 
       switch (selectedCountry) {
         case "USA":
