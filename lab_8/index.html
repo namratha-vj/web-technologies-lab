@@ -1,75 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Number to Words Converter</title>
-</head>
-
-<body align="center">
-  <h2>NUMBER TO WORDS CONVERTER</h2>
-  <form>
-    <label for="number">Enter a number (0 to 999):</label>
-    <input type="text" id="number" name="number" maxlength="3">
-    <br><br>
-
-    <input type="button" value="Convert" onclick="convertNumberToWords()">
-  </form>
-  <br>
-  <div id="result"></div>
-
-  <script>
-    function convertNumberToWords() {
-      var number = document.getElementById("number").value.trim();
-      var resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = "";
-
-      if (!isValidNumber(number)) {
-        resultDiv.innerHTML = "Invalid input! Please enter a number in the range of 0 to 999.";
-        return;
-      }
-
-      var numberInWords = numberToWords(parseInt(number));
-      resultDiv.innerHTML = "Number in words: " + numberInWords;
-    }
-
-    function isValidNumber(number) {
-      var regex = /^[0-9]{1,3}$/;
-      return regex.test(number);
-    }
-
-    function numberToWords(number) {
-      var ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
-      var tens = ['', 'Ten', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
-      var teens = ['Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
-      var words = [];
-
-      if (number == 0) {
-        words.push(ones[0]);
-      }
-
-      if (number >= 100) {
-        words.push(ones[Math.floor(number / 100)] + ' Hundred');
-        number %= 100;
-      }
-
-      if (number >= 11 && number <= 19) {
-        words.push(teens[number - 11]);
+  <title>Number in words</title>
+  <script language="javascript">
+    function convert() {
+      var num = document.forms["frm1"].num.value;
+      document.forms["frm1"].words.value = "";
+      if (isNaN(num)) {
+        alert("Not a Number");
+      } else if (num < 0 || num > 999) {
+        alert("Out of Range");
       } else {
-        if (number >= 20) {
-          words.push(tens[Math.floor(number / 10)]);
-          number %= 10;
+        var len = num.length;
+        var words = "";
+        for (var i = 0; i < len; i++) {
+          var n = num.substr(i, 1); // the code extracts one character at a time from the num string in each iteration of the loop, starting from index i. This allows the code to process each digit of the entered number separately.//
+          switch (n) {
+            case '0':
+              words += "Zero ";
+              break;
+            case '1':
+              words += "One ";
+              break;
+            case '2':
+              words += "Two ";
+              break;
+            case '3':
+              words += "Three ";
+              break;
+            case '4':
+              words += "Four ";
+              break;
+            case '5':
+              words += "Five ";
+              break;
+            case '6':
+              words += "Six ";
+              break;
+            case '7':
+              words += "Seven ";
+              break;
+            case '8':
+              words += "Eight ";
+              break;
+            default:
+              words += "Nine ";
+          }
         }
-
-        if (number > 0) {
-          words.push(ones[number]);
-        }
+        document.forms["frm1"].words.value = words;
       }
-
-      return words.join(' ');
     }
   </script>
+</head>
+
+<body>
+  <form name="frm1">
+    <center>
+      <h3>NUMBER IN WORDS</h3>
+    </center>
+    <br />
+    <center>Enter a Number :<input type="text" name="num" </input><br /></center>
+    <br />
+    <center><input type="button" name="inwords" value="In Words" onclick="convert()"></input></center>
+    <br /><br />
+    <center>Number in Words :<input type="text" name="words" </input></center>
+    <br />
+  </form>
 </body>
 
 </html>
