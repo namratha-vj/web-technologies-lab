@@ -1,43 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Bookstore - Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Book Store</title>
 </head>
-
-<body>
-  <!-- Top frame: logo and navigation bar -->
-  <header>
-    <img src="logo.jpg" alt="Online Bookstore Logo" width="100" height="100">
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="lab1/catlogue.html">Catalogue</a></li>
-        <li><a href="lab1/login.html">Login</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- Middle frame: banner -->
-  <main>
-    <section id="banner">
-      <img src="banner.jpg" alt="Featured Book Banner">
-      <h1>Find your next great read.</h1>
-      <p>Discover new books and authors in our online bookstore.</p>
-    </section>
-    <!-- Bottom frame: latest books -->
-    <section id="latest-books">
-      <h2>Latest Books</h2>
-      <ul>
-        <li><a href="#">Book Title 1</a></li>
-        <li><a href="#">Book Title 2</a></li>
-        <li><a href="#">Book Title 3</a></li>
-        <li><a href="#">Book Title 4</a></li>
-      </ul>
-    </section>
-  </main>
-</body>
+<frameset rows="15%,10%,*">
+  <frameset cols="20%,*">
+    <frame name="f11" src="logo.html" scrolling="no"></frame>
+    <frame name="f12" src="title.html" scrolling="no"></frame>
+  </frameset>
+  <frameset cols="20%,20%,20%,20%,*">
+    <frame name="f21" src="home.html"></frame>
+    <frame name="f22" src="login.html"></frame>
+    <frame name="f23" src="reg.html"></frame>
+    <frame name="f24" src="cat.html"></frame>
+    <frame name="f25" src="cart.html"></frame>
+  </frameset>
+  <frameset cols="20%,*">
+    <frame name="f31" src="branches.html"></frame>
+    <frame name="f32" src="homepage.html"></frame>
+  </frameset>
+</frameset>
 
 </html>
