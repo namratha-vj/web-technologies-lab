@@ -5,8 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 6</title>
+
+</head>
+
+<body align="center">
+  <h1>Display Date</h1>
+  <input type="text" id="dateInput" aria-label="input">
+  <button type="button" onclick="displayDate()">Display Date</button>
+  <button type="button" onclick="alert(Date())">Alert</button>
+  <p id="date"></p>
+  <br>
+  <h1>Factorial of a Number</h1>
+  <button type="button" onclick="factorial()">Find Factorial</button>
+
   <script>
-    var date = new Date();
+    
 
     function displayDate() {
       var date = new Date();
@@ -23,17 +36,6 @@
       alert("The factorial of " + num + " is " + fact);
     }
   </script>
-</head>
-
-<body align="center">
-  <h1>Display Date</h1>
-  <input type="text" id="dateInput" aria-label="input">
-  <button type="button" onclick="displayDate()">Display Date</button>
-  <button type="button" onclick="alert(date)">Alert</button>
-  <p id="date"></p>
-  <br>
-  <h1>Factorial of a Number</h1>
-  <button type="button" onclick="factorial()">Find Factorial</button>
 </body>
 
 </html>

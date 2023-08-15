@@ -4,17 +4,22 @@
   <title>Number in words</title>
   <script language="javascript">
     function convert() {
-      var num = document.forms["frm1"].num.value;
-      document.forms["frm1"].words.value = "";
-      if (isNaN(num)) {
+      var num = document.getElementById("num").value;
+      if (isNaN(num))
+      {
         alert("Not a Number");
-      } else if (num < 0 || num > 999) {
+      }
+      else if (num < 0 || num > 999)
+      {
         alert("Out of Range");
-      } else {
-        var len = num.length;
+      }
+      else 
+      {
         var words = "";
-        for (var i = 0; i < len; i++) {
-          var n = num.substr(i, 1); // the code extracts one character at a time from the num string in each iteration of the loop, starting from index i. This allows the code to process each digit of the entered number separately.//
+        for (var i = 0; i < num.length; i++) 
+        {
+          var n = num.substr(i, 1);
+          console.log(n) // the code extracts one character at a time from the num string in each iteration of the loop, starting from index i. This allows the code to process each digit of the entered number separately.//
           switch (n) {
             case '0':
               words += "Zero ";
@@ -59,11 +64,11 @@
       <h3>NUMBER IN WORDS</h3>
     </center>
     <br />
-    <center>Enter a Number :<input type="text" name="num" </input><br /></center>
+    <center>Enter a Number :<input type="text" name="num" id="num"></input><br /></center>
     <br />
     <center><input type="button" name="inwords" value="In Words" onclick="convert()"></input></center>
     <br /><br />
-    <center>Number in Words :<input type="text" name="words" </input></center>
+    <center>Number in Words :<input type="text" name="words"></input></center>
     <br />
   </form>
 </body>

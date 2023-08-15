@@ -87,15 +87,19 @@
   </div>
 
   <script>
-    function appendToResult(value) {
+    function appendToResult(value)
+    {
       document.getElementById("result").textContent += value;
     }
 
     function calculateResult() {
       const resultElement = document.getElementById("result");
-      try {
+      try 
+      {
         resultElement.textContent = eval(resultElement.textContent);
-      } catch (error) {
+      } 
+      catch (error) 
+      {
         resultElement.textContent = "Error";
       }
     }
