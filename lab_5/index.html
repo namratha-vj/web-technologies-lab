@@ -12,6 +12,7 @@
   <form name="myForm">
     <label for="email">E-mail ID:</label>
     <input type="text" id="email" name="email" maxlength="50">
+    <input type="submit" value="SUBMIT" onClick="validateEmail()">
     <br><br>
     
     <label for="mobile">Mobile Number:</label>
@@ -20,22 +21,12 @@
   </form>
 
   <script>
-    function validateForm() {
-      if (!validateEmail()) {
-        return false;
-      }
-
-      if (!validatePhoneNumber()) {
-        return false;
-      }
-
-      alert("Form submitted successfully!");
-    }
-
     function validateEmail() {
       var email = document.getElementById("email").value;
       var atPosition = email.indexOf("@");
       var dotPosition = email.lastIndexOf(".");
+      console.log(atPosition)
+      console.log(dotPosition)
 
       if (atPosition < 1 || dotPosition < atPosition + 2 || dotPosition + 2 >= email.length) {
         alert("Please enter a valid e-mail address");
