@@ -1,112 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Calculator</title>
+  <title>Analog Clock</title>
   <style>
     body {
-      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
     }
 
-    h1 {
-      padding: 20px;
-      background-color: skyblue;
-      color: white;
+    #outerClock {
+      border: 5px solid black;
+      border-radius: 50%;
+      max-height: 80vh;
+      max-width: 80vh;
+      position: relative;
+      overflow: hidden;
     }
 
-    .calculator {
-      width: 300px;
-      height: 500px;
-      margin: auto;
-      border: 3px solid skyblue;
-      border-radius: 5px;
-      padding: 20px;
-    }
-
-    .result {
+    #sizeOfAnalog {
+      position: absolute;
+      background-size: 100%;
+      height: 100%;
       width: 100%;
-      height: 80px;
-      margin-bottom: 10px;
-      font-size: 32px;
-      text-align: right;
-      padding: 5px;
     }
 
-    .button {
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      margin: 5px;
-      border: 2px solid gray;
-      border-radius: 5px;
-      background-color: lightgray;
+    #hour_clock,
+    #minute_clock,
+    #second_clock {
+      position: absolute;
+      background: black;
+      border-radius: 10px;
+      transform-origin: bottom;
+      opacity: 0.8;
     }
 
-    .button.clear {
-      width: 80px;
-      height: 50px;
-      background-color: red;
-      color: white;
+    #hour_clock {
+      height: 25%;
+      width: 2%;
+      top: 25%;
+      left: 48.85%;
+    }
+
+    #minute_clock {
+      height: 32%;
+      width: 1.6%;
+      top: 18%;
+      left: 48.9%;
+    }
+
+    #second_clock {
+      height: 36%;
+      width: 1%;
+      top: 14%;
+      left: 50%;
     }
   </style>
 </head>
 
 <body>
-  <h1>Calculator in JavaScript</h1>
-  <div class="calculator">
-    <div class="result" id="result"></div>
-    <div>
-      <input type="button" class="button" value="1" onclick="appendToResult('1')">
-      <input type="button" class="button" value="2" onclick="appendToResult('2')">
-      <input type="button" class="button" value="3" onclick="appendToResult('3')">
-      <input type="button" class="button" value="+" onclick="appendToResult('+')">
-    </div>
-    <div>
-      <input type="button" class="button" value="4" onclick="appendToResult('4')">
-      <input type="button" class="button" value="5" onclick="appendToResult('5')">
-      <input type="button" class="button" value="6" onclick="appendToResult('6')">
-      <input type="button" class="button" value="-" onclick="appendToResult('-')">
-    </div>
-    <div>
-      <input type="button" class="button" value="7" onclick="appendToResult('7')">
-      <input type="button" class="button" value="8" onclick="appendToResult('8')">
-      <input type="button" class="button" value="9" onclick="appendToResult('9')">
-      <input type="button" class="button" value="*" onclick="appendToResult('*')">
-    </div>
-    <div>
-      <input type="button" class="button" value="/" onclick="appendToResult('/')">
-      <input type="button" class="button" value="0" onclick="appendToResult('0')">
-      <input type="button" class="button" value="." onclick="appendToResult('.')">
-      <input type="button" class="button" value="=" onclick="calculateResult()">
-    </div>
-    <div>
-      <input type="button" class="button clear" value="Clear" onclick="clearResult()">
+  <div id="outerClock">
+    <div id="sizeOfAnalog">
+      <div id="hour_clock"></div>
+      <div id="minute_clock"></div>
+      <div id="second_clock"></div>
     </div>
   </div>
-
   <script>
-    function appendToResult(value)
-    {
-      document.getElementById("result").textContent += value;
+    function adjustClockSize() {
+      var outerClock = document.getElementById("outerClock");
+      var size = Math.min(window.innerHeight, window.innerWidth) * 0.8;
+      outerClock.style.width = size + "px";
+      outerClock.style.height = size + "px";
     }
 
-    function calculateResult() {
-      const resultElement = document.getElementById("result");
-      try 
-      {
-        resultElement.textContent = eval(resultElement.textContent);
-      } 
-      catch (error) 
-      {
-        resultElement.textContent = "Error";
-      }
-    }
+    window.onresize = adjustClockSize;
+    adjustClockSize();
 
-    function clearResult() {
-      document.getElementById("result").textContent = "";
-    }
+    var hour = document.getElementById("hour_clock");
+    var minute = document.getElementById("minute_clock");
+    var seconds = document.getElementById("second_clock");
+    var addClock = setInterval(function clock() {
+      var date_now = new Date();
+      var hr = date_now.getHours();
+      var min = date_now.getMinutes();
+      var sec = date_now.getSeconds();
+      var calc_hr = hr * 30 + min / 2;
+      var calc_min = min * 6;
+      var calc_sec = sec * 6;
+      hour.style.transform = "rotate(" + calc_hr + "deg)";
+      minute.style.transform = "rotate(" + calc_min + "deg)";
+      seconds.style.transform = "rotate(" + calc_sec + "deg)";
+    }, 1000);
   </script>
 </body>
 
