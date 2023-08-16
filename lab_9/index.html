@@ -87,7 +87,7 @@
     var hour = document.getElementById("hour_clock");
     var minute = document.getElementById("minute_clock");
     var seconds = document.getElementById("second_clock");
-    var addClock = setInterval(function clock() {
+    function clock() {
       var date_now = new Date();
       var hr = date_now.getHours();
       var min = date_now.getMinutes();
@@ -98,7 +98,8 @@
       hour.style.transform = "rotate(" + calc_hr + "deg)";
       minute.style.transform = "rotate(" + calc_min + "deg)";
       seconds.style.transform = "rotate(" + calc_sec + "deg)";
-    }, 1000);
+    }
+    var addClock = setInterval(clock(), 1000);
   </script>
 </body>
 
