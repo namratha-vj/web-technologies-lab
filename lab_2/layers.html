@@ -6,22 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Working with Layer</title>
   <style type="text/css">
-    .center {
+    body {
       text-align: center;
     }
-    p{
+
+    p {
       font-size: 30px;
     }
   </style>
 </head>
 
-<body class="center">
+<body>
   <h1>Layer 1 ON TOP</h1>
   <p style="position:relative; z-index:2; color:blue">TOPLAYER</div>
-  <p style="position:relative; top:-50px; left:10px; z-index:1; color:orange">BOTTOMLAYER</div>
+  <p style="position:relative; top:-50px; z-index:1; color:orange">BOTTOMLAYER</div>
   <h1>Layer 2 on top</h1>
-  <p style="position:relative; z-index:3; color:blue">TOPLAYER</div>
-  <p style="position:relative; top:-50px; left:10px; z-index:4; color:aqua;">BOTTOMLAYER</div>
+  <p style="position:relative; z-index:3; color:blue">BOTTOMLAYER</div>
+  <p style="position:relative; top:-50px; z-index:4; color:aqua;">TOPLAYER</div>
 
 </body>
 
